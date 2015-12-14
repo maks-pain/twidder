@@ -32,6 +32,13 @@ public class User extends Persistable {
     public User() {
     }
 
+    public User(String username, String email, String passwordHash, Role role) {
+        this.username = username;
+        this.email = email;
+        this.passwordHash = passwordHash;
+        this.role = role;
+    }
+
     @Override
     public String toString() {
         return "User{" +

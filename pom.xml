@@ -7,6 +7,8 @@
     <groupId>ua.net.hmara</groupId>
     <artifactId>twidder</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
 
     <name>twidder</name>
 
@@ -49,6 +51,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jetty</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
+
 
         <dependency>
             <groupId>mysql</groupId>

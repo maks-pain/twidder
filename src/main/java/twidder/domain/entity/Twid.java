@@ -14,7 +14,6 @@ import javax.persistence.ManyToOne;
 public class Twid extends Persistable {
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @Column(nullable = false)
     private User owner;
 
     @Column
@@ -37,6 +36,14 @@ public class Twid extends Persistable {
 
     public void setOwner(User owner) {
         this.owner = owner;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
     }
 
     @Override

@@ -28,7 +28,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout().permitAll();
 
-//        super.configure(http);
+        super.configure(http);
     }
 
     @Override
