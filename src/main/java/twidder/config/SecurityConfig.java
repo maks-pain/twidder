@@ -21,14 +21,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
                 .antMatchers("/app/**").hasRole("USER")
-                .antMatchers("/").hasAnyRole()
+                .antMatchers("/").hasAnyRole("USER","ADMIN")
                 .and()
                 .formLogin()
                 .defaultSuccessUrl("/app/app.html").permitAll()
                 .and()
                 .logout().permitAll();
 
-        super.configure(http);
+//        super.configure(http);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package twidder.controller;
+package twidder.controller.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.core.MessageSendingOperations;
@@ -20,14 +20,17 @@ import java.util.List;
 public class TwidController {
 
     private final MessageSendingOperations<String> messageSendingOperations;
-    @Autowired
+    //    @Autowired
     TwidService twidService;
-    @Autowired
+    //    @Autowired
     UserService userService;
 
     @Autowired
-    public TwidController(final MessageSendingOperations<String> messageSendingOperations) {
+    public TwidController(final MessageSendingOperations<String> messageSendingOperations, TwidService twidService, UserService userService
+    ) {
         this.messageSendingOperations = messageSendingOperations;
+        this.twidService = twidService;
+        this.userService = userService;
     }
 
     @MessageMapping("/twid/create")
@@ -40,7 +43,7 @@ public class TwidController {
 
     @MessageMapping("/twid/remove")
     @SendToUser("/topic/twid/remove")
-    public Twid create(Twid twid/*, Principal principal*/) {
+    public Twid remove(Twid twid/*, Principal principal*/) {
         System.out.println("\n>>>\t/twid/remove twid: " + twid);
         return twidService.removeTwid(twid);
     }

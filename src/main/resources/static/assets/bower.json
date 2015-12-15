@@ -1,0 +1,28 @@
+{
+  "name": "assets",
+  "homepage": "https://github.com/maks-pain/twidder",
+  "authors": [
+    "Maksym Panchenko <maks.pain@gmail.com>"
+  ],
+  "description": "",
+  "main": "main.js",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-bootstrap": "~0.14.3",
+    "jquery": "~2.1.4",
+    "angular": "angularjs#~1.4.8",
+    "sockjs": "~0.3.4"
+  },
+  "resolutions": {
+    "jquery": "1"
+  }
+}

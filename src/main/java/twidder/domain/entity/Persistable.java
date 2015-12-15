@@ -1,12 +1,12 @@
 package twidder.domain.entity;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.Version;
+import org.springframework.data.annotation.CreatedDate;
+
+import javax.persistence.*;
+import java.util.Date;
 
 /**
- * Created by maks on 12/11/15.
+ * Created by maks-pain on 12/11/15
  */
 
 @MappedSuperclass
@@ -18,6 +18,10 @@ abstract class Persistable {
 
     @Version
     Integer version;
+
+    @CreatedDate
+    @Column(name = "created_date")
+    Date createdDate;
 
     public Long getId() {
         return id;
@@ -35,11 +39,20 @@ abstract class Persistable {
         this.version = version;
     }
 
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
     @Override
     public String toString() {
         return "Persistable{" +
                 "id=" + id +
                 ", version=" + version +
+                ", createdDate=" + createdDate +
                 '}';
     }
 }
