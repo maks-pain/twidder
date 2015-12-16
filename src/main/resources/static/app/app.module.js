@@ -2,12 +2,13 @@
  * Created by maks-pain on 12/15/15.
  */
 
-define([], function () {
+define(['./common/common.module','./common/ws.service'], function () {
     'use strict';
 
-    console.log("[APP.MODULE] Init");
+    console.log("[APP.MODULE] Load");
     return angular.module('twidder', [
-        'ui.bootstrap'
+        'ui.bootstrap',
+        'twidder.common'
     ]).config(function ($logProvider, $provide) {
 
         $logProvider.debugEnabled(true);

@@ -9,7 +9,7 @@ import twidder.domain.entity.User;
 import twidder.service.UserService;
 
 /**
- * Created by maks on 12/14/15.
+ * Created by maks-pain on 12/14/15
  */
 
 @Service
