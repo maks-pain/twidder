@@ -13,7 +13,21 @@ require.config({
     waitSeconds: 20,
 
     paths: {
-        twidApp: '/app/app.module'
+        jq: '../assets/bower_components/jquery/dist/jquery',
+        ng: '../assets/bower_components/angular/angular',
+        bootstrap: '../assets/bower_components/angular-bootstrap/ui-bootstrap-tpls',
+        router: '../assets/bower_components/angular-ui-router/release/angular-ui-router',
+        sockjs: '../assets/bower_components/sockjs/sockjs',
+        stomp: '../assets/bower_components/stomp-websocket/lib/stomp',
+        twidApp: '../app/app.module'
+    },
+    shim:{
+        ng: {
+            exports: 'angular'
+        },
+        router: ['ng'],
+        bootstrap: ['jq','ng'],
+        twidApp: ['jq','ng','bootstrap','router','sockjs','stomp']
     }
 
 });

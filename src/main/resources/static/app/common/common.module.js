@@ -6,6 +6,6 @@ define([],function(){
     "use strict";
 
     console.log('[COMMON.MODULE] Load');
-    angular.module('twidder.common',[]);
+    return angular.module('twidder.common',[]);
 
 });

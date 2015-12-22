@@ -2,14 +2,41 @@
  * Created by maks-pain on 12/15/15.
  */
 
-define(['./common/common.module','./common/ws.service'], function () {
+define(['./common/common.controller'], function () {
     'use strict';
 
     console.log("[APP.MODULE] Load");
-    return angular.module('twidder', [
-        'ui.bootstrap',
-        'twidder.common'
-    ]).config(function ($logProvider, $provide) {
+
+    configureLogger.$inject = ['$logProvider', '$provide'];
+    configureRoutes.$inject = ['$urlRouterProvider', '$locationProvider'];
+    configureRootScope.$inject = ['$rootScope', '$state', '$stateParams'];
+
+    return angular
+        .module('twidder', ['ui.router', 'ui.bootstrap', 'twidder.common', 'twidder.user'])
+        .config(configureLogger)
+        .config(configureRoutes)
+        .run(configureRootScope);
+
+
+    function configureRoutes($urlRouterProvider, $locationProvider) {
+        console.log('[twidder] configure routes');
+
+        $urlRouterProvider
+            .otherwise('/');
+
+    }
+
+    function configureRootScope($rootScope, $state, $stateParams) {
+        console.log('[twidder] configure $rootScope');
+
+        $rootScope.$state = $state;
+        $rootScope.$stateParams = $stateParams;
+
+    }
+
+    function configureLogger($logProvider, $provide) {
+
+        console.log('[twidder] configure logger');
 
         $logProvider.debugEnabled(true);
 
@@ -66,9 +93,9 @@ define(['./common/common.module','./common/ws.service'], function () {
                         mins = now.getMinutes(),
                         hours = now.getHours();
                     now = hours +
-                    ':' + (mins < 10 ? '0' + mins : mins) +
-                    ':' + (secs < 10 ? '0' + secs : secs) +
-                    '.' + (millis < 100 ? '0' + millis : millis);
+                        ':' + (mins < 10 ? '0' + mins : mins) +
+                        ':' + (secs < 10 ? '0' + secs : secs) +
+                        '.' + (millis < 100 ? '0' + millis : millis);
                     args.unshift(
                         '[%c' + now + (className ? ':%c:' + className : '') + '%c]',
                         "color: green; font-size: x-small",
@@ -80,5 +107,5 @@ define(['./common/common.module','./common/ws.service'], function () {
             }
 
         }])
-    })
+    }
 });
