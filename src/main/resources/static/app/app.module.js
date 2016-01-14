@@ -5,7 +5,7 @@
 define(['./common/common.controller'], function () {
     'use strict';
 
-    console.log("[APP.MODULE] Load");
+    console.log("[APP.MODULE] Load",new Date().toISOString());
 
     configureLogger.$inject = ['$logProvider', '$provide'];
     configureRoutes.$inject = ['$urlRouterProvider', '$locationProvider'];
@@ -19,7 +19,7 @@ define(['./common/common.controller'], function () {
 
 
     function configureRoutes($urlRouterProvider, $locationProvider) {
-        console.log('[twidder] configure routes');
+        console.log('[twidder] configure routes',new Date().toISOString());
 
         $urlRouterProvider
             .otherwise('/');
@@ -27,7 +27,7 @@ define(['./common/common.controller'], function () {
     }
 
     function configureRootScope($rootScope, $state, $stateParams) {
-        console.log('[twidder] configure $rootScope');
+        console.log('[twidder] configure $rootScope',new Date().toISOString());
 
         $rootScope.$state = $state;
         $rootScope.$stateParams = $stateParams;
@@ -36,7 +36,7 @@ define(['./common/common.controller'], function () {
 
     function configureLogger($logProvider, $provide) {
 
-        console.log('[twidder] configure logger');
+        console.log('[twidder] configure logger',new Date().toISOString());
 
         $logProvider.debugEnabled(true);
 

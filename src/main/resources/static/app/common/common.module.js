@@ -5,7 +5,7 @@
 define([],function(){
     "use strict";
 
-    console.log('[COMMON.MODULE] Load');
+    console.log('[COMMON.MODULE] Load',new Date().toISOString());
     return angular.module('twidder.common',[]);
 
 });

@@ -5,7 +5,8 @@
 define(['./common.module'], function () {
     "use strict";
 
-    console.log('[WS.SERVICE] Load');
+    console.log('[WS.SERVICE] Load',new Date().toISOString());
+
     angular.module('twidder.common')
         .factory('wsService', wsService);
 

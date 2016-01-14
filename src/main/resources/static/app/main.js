@@ -6,7 +6,7 @@
 
 'use strict';
 
-console.log('[MAIN] Init');
+console.log('[MAIN] Init',new Date().toISOString());
 
 require.config({
     baseUrl: '/app',
@@ -32,13 +32,13 @@ require.config({
 
 });
 
-console.log('[MAIN] Kick-start application');
+console.log('[MAIN] Kick-start application',new Date().toISOString());
 
 define(['twidApp'], function () {
 
     angular.element(document).ready(function () {
         angular.bootstrap(document, ['twidder'])
     });
-    console.log('[MAIN] Kick-start done');
+    console.log('[MAIN] Kick-start done',new Date().toISOString());
 
 });

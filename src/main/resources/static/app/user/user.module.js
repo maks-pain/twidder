@@ -6,7 +6,7 @@
 define([],function(){
     "use strict";
 
-    console.log('[USER.MODULE] Load');
+    console.log('[USER.MODULE] Load',new Date().toISOString());
     return angular.module('twidder.user',[]);
 
 });

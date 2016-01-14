@@ -5,6 +5,8 @@
 define(['./common.module'], function () {
     "use strict";
 
+    console.log('[COMMON.STATES] Load',new Date().toISOString());
+
     configRoutes.$inject = ['$stateProvider', '$urlRouterProvider'];
 
     return angular.module('twidder.common')
